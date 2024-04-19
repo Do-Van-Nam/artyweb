@@ -4,15 +4,18 @@ const cors = require('cors')
 
 const morgan = require('morgan')
 const path = require('path')
-const db = require('./config/db')
+const dbexhs = require('./config/db/dbexhs')
+const dbaccs = require('./config/db/dbaccs')
 // connect to DB
-db.connect()
+
+dbexhs.connect()
+dbaccs.connect()
 
 const app = express()
 const port = 5713
 
 app.use(cors())
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 //http logger
@@ -24,7 +27,7 @@ app.use(morgan('combined'))
 // }));
 // app.set('view engine', 'hbs');
 // app.set('views', path.join(__dirname,'/resources/views'));
-
+ 
 
 app.use(express.static(path.join(__dirname, 'public')))
 
