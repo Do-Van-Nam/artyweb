@@ -1,3 +1,7 @@
+*{
+    margin:  0 ;
+    padding: 0;
+}
 :root {
     --pink: #FBA2D0;
     --purple: #C688EB;
@@ -7,6 +11,8 @@
 }
 
 .home {
+    height: 100%;
+    width: 100%;
     font-size: 24px;
     font-weight: 900;
     color: white;
@@ -17,6 +23,9 @@
     text-decoration-thickness: auto;
     text-transform: uppercase;
     unicode-bidi: isolate;
+    padding: 0;
+    overflow: hidden;
+    margin: 0;
 }
 
 .home {

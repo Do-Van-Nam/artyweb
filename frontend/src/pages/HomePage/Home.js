@@ -10,9 +10,8 @@ import styles from './home.module.css'
 
 export default function Home() {
     return (
-        <div className={styles.home}>
+        <div className={styles.home} style={{maxWidth:'vw'}}>
             <Header />
-
             <section id="welcome-hero" class="welcome-hero">
                 < div class="container">
                     <div class="row">
@@ -67,11 +66,12 @@ export default function Home() {
 			</div>
 		</div>
 	</section>
+    <Footer/>
     
-            <Footer/>
             
         </div>
 
+  
 
 
     )

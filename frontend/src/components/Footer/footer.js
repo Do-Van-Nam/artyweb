@@ -7,26 +7,9 @@ import ReactDOM from 'react-dom'
 import { FaFacebook, FaEnvelope, FaPhone } from 'react-icons/fa'
 export default function Footer() {
   return (
-    <div className={styles.footer_container}>
-      {/* <div>
-        <img src={logo} alt="" />
-        <div>About ARTY</div>
-      </div>
-      <div>Contact Info
-        <div className={styles.contact_container}>
-          <FaFacebook  onClick={()=>{
-              window.location.href="https://www.facebook.com/profile.php?id=100033635897130"
-          }}/>
-          
-          <FaEnvelope  title="nam15sep2003@gmail.com"/>
-          <FaPhone title="0961597093"/>
-        </div>
 
 
-      </div> */}
-      <footer id="footer-copyright" class="footer-copyright">
-		<div class="container" >
-			<div class="hm-footer-copyright text-center">
+			<div class={styles.footerContainer}>
 				<p>
 					 contact info
            <br/>
@@ -53,12 +36,10 @@ export default function Footer() {
 
       
 			</div>
-		</div>
+
 
 		
 
-	</footer>
 
-    </div>
   );
 }
