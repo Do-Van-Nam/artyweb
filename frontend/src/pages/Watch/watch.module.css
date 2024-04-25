@@ -1,10 +1,11 @@
 
 .tickets{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: 12px; 
     font-weight: 700;
     color: #6C7EE1;
     font-family: "Open Sans", sans-serif;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 import Header from "../../components/Header/header"
-import Footer from "../../components/Footer/footer"
+import Footer from "../../components/Footer/footer1"
 import TicketBox from "../../components/TicketBox/ticketBox"
 import styles from './home.module.css'
 
