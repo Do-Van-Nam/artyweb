@@ -12,6 +12,7 @@ export default function ticketBox({props}){
             <div>Thời gian: {props.time}</div>
             <div>Giờ mở cửa: {props.opentime}</div>
             <button className={styles.button_1} >Mua vé</button>
+            <button className={styles.button_1} >Mua vé</button>
 
 
 
