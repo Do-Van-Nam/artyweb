@@ -5,10 +5,6 @@ const Account = new Schema({
     email: 
     {type: String  },
     password: {type:String},
-    
-
-
 })
-
 
 module.exports = mongoose.model('Account', Account)

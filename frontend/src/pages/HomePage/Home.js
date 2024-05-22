@@ -7,10 +7,13 @@ import Header from "../../components/Header/header"
 import Footer from "../../components/Footer/footer1"
 import TicketBox from "../../components/TicketBox/ticketBox"
 import styles from './home.module.css'
+import ChatbotEmbed from './ChatbotEmbed';
 
 export default function Home() {
+ 
+
     return (
-        <div className={styles.home} style={{maxWidth:'vw'}}>
+        <div className={styles.home} >
             <Header />
             <section id="welcome-hero" class="welcome-hero">
                 < div class="container">
@@ -66,6 +69,7 @@ export default function Home() {
 			</div>
 		</div>
 	</section>
+    <ChatbotEmbed/>
     <Footer/>
     
             

@@ -7,8 +7,8 @@ const Exhibition = new Schema({
     thumbnail: {type: String},
     time:{type:String},
     opentime:{type:String},
-
-
+    idartist:{type:String},
+    cost:{type:String},
 })
 
 

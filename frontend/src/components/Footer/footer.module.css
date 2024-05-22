@@ -28,8 +28,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    /* min-width: 100vw; */
     width: 100vw;
-
     height: 15vh;
     background-color: var(--purple);
     font-size: 24px;
@@ -65,16 +65,11 @@
 
 .contact_container{
     display: flex;
-    /* width: 80px; */
-    justify-content: center;
-
-    
-    
+    justify-content: center;  
 }
 .envelope{
     margin: 0 20px;
 }
-
 
 .footerContainer {
 

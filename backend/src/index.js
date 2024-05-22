@@ -6,10 +6,14 @@ const morgan = require('morgan')
 const path = require('path')
 const dbexhs = require('./config/db/dbexhs')
 const dbaccs = require('./config/db/dbaccs')
+const dbexhspics = require('./config/db/dbexhspics')
+const dbboughttickets = require('./config/db/dbboughtticket')
 // connect to DB
 
 dbexhs.connect()
 dbaccs.connect()
+dbexhspics.connect()
+dbboughttickets.connect()
 
 const app = express()
 const port = 5713
@@ -30,7 +34,6 @@ app.use(morgan('combined'))
  
 
 app.use(express.static(path.join(__dirname, 'public')))
-
 
 // ROUTE init
 const route = require('./routes')

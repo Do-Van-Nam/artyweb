@@ -22,8 +22,8 @@ export default function Header() {
 			                <li class=" smooth-menu active"></li>
 			                    <li class=" smooth-menu"><Link to='/'>Trang chủ</Link></li>
 			                    <li class="smooth-menu"><Link to='/ticket_buy'>Mua vé</Link></li>
-			                    <li class="smooth-menu"><Link to='/watch'>Xem online</Link></li>
-			                    <li class="smooth-menu"><Link to='/aichat'>AI chat</Link></li>
+			                    <li class="smooth-menu"><Link to='/cart'>Vé xem</Link></li>
+			                    {/* <li class="smooth-menu"><Link to='/aichat'>AI chat</Link></li> */}
 			                    <li class="smooth-menu"><Link to='/signup'>Đăng ký</Link></li>
 			                    <li class="smooth-menu"><Link to='/login'>Đăng nhập</Link></li>
 			                    {/* <li class="smooth-menu"><a href="#contact">contact</a></li> */}

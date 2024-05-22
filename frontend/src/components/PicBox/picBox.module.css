@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --pink: #FBA2D0;
+    --purple: #C688EB;
+    --orange: #FFC4A4;
+    --blue: #92B9E3;
+    --dark-blue: #6C7EE1;
+}
+.picbox{
+    width: 90vw;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    min-height: 45vh;
+    background-color: var(--orange);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px;
+}
+.picdes{
+    width: 30%;
+    height: 40%;
+    font-size: 20px;
+}
+.picarea{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+.pic{
+    width: 475px;
+    height: auto;
+    /* background-image:url("https://upload.wikimedia.org/wikipedia/commons/2/21/La_Vague_%28Gustave_Courbet_-_Mus%C3%A9e_des_beaux-arts_de_Lyon%29.jpg");
+    background-repeat: no-repeat;
+    background-size: cover */
+}
+.picname{
+    font-size: 18px;
+}
