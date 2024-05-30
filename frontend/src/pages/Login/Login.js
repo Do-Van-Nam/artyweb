@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import clsx from 'clsx';
 import { Link, redirect, withRouter, useNavigate } from "react-router-dom";
 import { } from 'react-router'
 import axios from 'axios'
+import { AppContext } from '../../AppContext';
+
 
 import styles from './login.module.css'
 
@@ -12,6 +14,8 @@ function Login(props) {
     const [login, setLogin] = useState(props.log)
     const [loginSuccess, setLoginSuccess] = useState(false)
     const [signupSuccess, setSignupSuccess] = useState(false)
+	const { log, setLog } = useContext(AppContext)
+	const { userid, setUserid } = useContext(AppContext)
 
     const navigate = useNavigate()
 
@@ -33,12 +37,14 @@ function Login(props) {
         e.preventDefault()
         const isLoggined = accs.find(acc => acc.email === email && acc.password === password)
         if (isLoggined) {
+            setLog(true)
             console.log('dang nhap thanh cong')
             setLoginSuccess(true)
             setTimeout(() => {
                 navigate('/')
-
             }, 2000)
+           const userid= localStorage.setItem("userid",isLoggined._id)
+            setUserid(userid)
             return
         }
         else {
@@ -56,20 +62,26 @@ function Login(props) {
             email: email,
             password: password
         }
+        const isExistedEmail = accs.find(acc=>acc.email===email)
+        if(isExistedEmail){
+            alert("Tai khoan da ton tai!")
+            return
+        }
         try {
             await axios.post('http://localhost:5713/accs', formData);
             setTimeout(() => {
+                setLog(true)
                 navigate('/')
             }, 2000)
+        const isLoggined = accs.find(acc => acc.email === email && acc.password === password)
+         localStorage.setItem("userid",isLoggined._id)
+            setUserid(localStorage.getItem('userid'))
             return
 
         } catch (error) {
             console.log(error)
         }
     }
-
-
-
 
     function LoginForm() {
         return (

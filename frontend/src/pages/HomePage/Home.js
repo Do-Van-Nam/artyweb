@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 import Header from "../../components/Header/header"
-import Footer from "../../components/Footer/footer1"
+import Footer from "../../components/Footer/footer"
 import TicketBox from "../../components/TicketBox/ticketBox"
 import styles from './home.module.css'
 import ChatbotEmbed from './ChatbotEmbed';
@@ -69,7 +69,7 @@ export default function Home() {
 			</div>
 		</div>
 	</section>
-    <ChatbotEmbed/>
+    {/* <ChatbotEmbed/> */}
     <Footer/>
     
             

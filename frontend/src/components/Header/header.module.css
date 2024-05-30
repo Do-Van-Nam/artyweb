@@ -5,7 +5,9 @@
     --blue: #92B9E3;
     --dark-blue: #6C7EE1;
 }
-
+.header{
+    overflow: visible;
+}
 
 
 .header_container{
@@ -77,3 +79,62 @@ unicode-bidi :isolate;
     width: 10px;
     height: auto;
 }
+.userpic{
+    height: 40px;
+    width: auto;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+.userpanel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* fle */
+    width: 180px;
+    height: 180px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    /* overflow: hidden; */
+    /* cursor: pointer; */
+    position: absolute;
+    /* overflow: visible; */
+    font-size: 12px;
+    z-index: 999;
+}
+.button_1 {
+    background-color: #EA4C89;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    /* display: inline-block; */
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px; 
+    font-weight: 500;
+    height: 40px;
+    width: 150px;
+    line-height: 20px;
+    list-style: none;
+  
+    outline: none;
+    padding: 10px 10px;
+    margin:10px 10px;
+    /* position: relative; */
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }

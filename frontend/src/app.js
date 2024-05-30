@@ -1,8 +1,6 @@
 import React from "react"
 import { Routes, Route } from 'react-router-dom'
 
-
-
 import styles from "./styles.module.css"
 import styles1 from "./styles.css"
 
@@ -11,6 +9,7 @@ import TicketBuy from "./pages/TicketBuy/TicketBuy"
 import Cart from "./pages/Cart/Cart"
 import Login from "./pages/Login/Login"
 import ExhDetail from "./pages/ExhDetail/exhDetail"
+import ChatbotEmbed from "./pages/HomePage/ChatbotEmbed"
 
 import AIChat from "./pages/AIChat/aiChat"
 
@@ -31,6 +30,7 @@ function App() {
                 <Route path="/exhdetail/:idartist" element={<ExhDetail />} />
             </Routes>
             </AppProvider>
+            <ChatbotEmbed/>
         </div>
     )
 }

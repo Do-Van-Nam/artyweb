@@ -15,8 +15,8 @@ function route(app) {
     app.post('/generate',aiRouter)
     app.use('/boughtticket',boughtticketRouter)
     app.post('/boughtticket',boughtticketRouter)
-    app.put('/boughtticket/:idartist',boughtticketRouter)
-    app.delete('/boughtticket/:idartist',boughtticketRouter)
+    app.put('/boughtticket/:idticket',boughtticketRouter)
+    app.delete('/boughtticket/:idticket',boughtticketRouter)
 
 }
 

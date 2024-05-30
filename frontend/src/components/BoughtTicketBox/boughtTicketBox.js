@@ -1,15 +1,17 @@
 import styles from "./boughtTicketBox.module.css"
-import { useState } from "react";
+import { useState,useContext } from "react";
 import clsx from "clsx"
 import qrpic from "./qrpic.jpg"
 import qrticket from "./image.png"
 import axios from 'axios'
+import { AppContext } from "../../AppContext";
 
 export default function boughtTicketBox({ props }) {
     const [paid, setPaid] = useState(props.paid)
     const [qrcode, setQrcode] = useState(false)
     const [ticket, setTiket] = useState(false)
     const [deleted, setDeleted] = useState(false)
+    const {userid, setUserid} = useContext(AppContext)
     var bgstyle = {
         backgroundImage : `url(${qrpic})`,
         backgroundRepeat: 'no-repeat',
@@ -53,7 +55,7 @@ export default function boughtTicketBox({ props }) {
     }
 const deleteTicket= async () => {
     try {
-    const response = await axios.delete(`http://localhost:5713/boughtticket/${props.idartist}`)
+    const response = await axios.delete(`http://localhost:5713/boughtticket/${props._id}`)
     } catch (error) {
         console.log(error)
     }
@@ -63,9 +65,10 @@ const getPaid = async ()=>{
     try {
         const updatedBoughtTicket={
             idartist:props.idartist,
-            paid: true
+            paid: true,
+            userid: userid
         }
-    const response = await axios.put(`http://localhost:5713/boughtticket/${props.idartist}`,updatedBoughtTicket)
+    const response = await axios.put(`http://localhost:5713/boughtticket/${props._id}`,updatedBoughtTicket)
     } catch (error) {
         console.log(error)
     }

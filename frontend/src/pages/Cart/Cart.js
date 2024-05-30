@@ -14,13 +14,15 @@ export default function Cart() {
     var [boughtticket, setBoughtTicket] = useState([])
     var [props, setProps] = useState([])
     var [loading, setLoading] = useState(true)
+var {userid,setUserid} = useContext(AppContext)
+    setUserid(localStorage.getItem('userid'))
     useEffect(() => {
         const fetchdata = async () => {
             try {
                 const response = await axios.get('http://localhost:5713/watch')
                 let exh1 = response.data.exhs
                 setExh(exh1)
-                const response1 = await axios.get('http://localhost:5713/boughtticket')
+                const response1 = await axios.get(`http://localhost:5713/boughtticket/${userid}`)
                 let boughttickets = response1.data.boughttickets
                 setBoughtTicket(boughttickets)
                 let props = exh1.filter((e)=>{
@@ -31,6 +33,7 @@ export default function Cart() {
                     let idartist = e.idartist
                     let ticket = boughttickets.find(e=>e.idartist===idartist)
                     e.paid=ticket.paid
+                    e._id = ticket._id
                     return e
                 })
                 setProps(props)
@@ -46,7 +49,9 @@ export default function Cart() {
     return (
         <div className={styles.ticketbuy}>
             <Header />
+
             <div className={styles.tickets}>
+                {loading ? <div>LOADING</div> : <></>}
                 {
                     props.map(e=><BoughtTicketBox key={e.idartist} props={e} />)
                 }

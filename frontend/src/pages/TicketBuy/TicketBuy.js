@@ -26,7 +26,6 @@ export default function TicketBuy() {
                     let pic = exhspics1.find((e) => e.idartist === idartist);
                     if (pic) {
                         e.thumbnail = pic.picsrc;
-                        console.log(e.thumbnail);
                     }
                     let pics = exhspics1.filter((e) => e.idartist === idartist);
                     if(pics) e.pics = pics;
