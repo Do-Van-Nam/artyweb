@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import clsx from 'clsx';
 import { Link, redirect, withRouter, useNavigate } from "react-router-dom";
 import { } from 'react-router'
 import axios from 'axios'
+import { AppContext } from '../../AppContext';
+
 
 import styles from './login.module.css'
 
@@ -12,6 +14,8 @@ function Login(props) {
     const [login, setLogin] = useState(props.log)
     const [loginSuccess, setLoginSuccess] = useState(false)
     const [signupSuccess, setSignupSuccess] = useState(false)
+    const { log, setLog } = useContext(AppContext)
+    const { userid, setUserid } = useContext(AppContext)
 
     const navigate = useNavigate()
 
@@ -33,43 +37,68 @@ function Login(props) {
         e.preventDefault()
         const isLoggined = accs.find(acc => acc.email === email && acc.password === password)
         if (isLoggined) {
+            setLog(true)
             console.log('dang nhap thanh cong')
             setLoginSuccess(true)
             setTimeout(() => {
                 navigate('/')
-
             }, 2000)
+            const userid = localStorage.setItem("userid", isLoggined._id)
+            setUserid(userid)
             return
         }
         else {
-            alert("sai thong tin dang nhap")
+            alert("Sai thông tin đăng nhập!")
             return
+        }
+    }
+    async function loadacc(){
+        try {
+            const acc1 = await axios.get('http://localhost:5713/accs')
+            setAccs(acc1.data.accs)
+            console.log(accs)
+            let isLoggined = acc1.data.accs.find(acc => acc.email === email && acc.password === password)
+            localStorage.setItem("userid", isLoggined._id)
+            setUserid(localStorage.getItem('userid'))
+        } catch (error) {
+            console.log(error)
         }
     }
     async function signupSubmit(e) {
         e.preventDefault()
         if (password !== confirmpassword) {
-            alert("Mat khau khong khop")
+            alert("Mật khẩu không khớp!")
             return
         }
         var formData = {
             email: email,
             password: password
         }
+        const isExistedEmail = accs.find(acc => acc.email === email)
+        if (isExistedEmail) {
+            alert("Tài khoản đã tồn tại!")
+            return
+        }
         try {
             await axios.post('http://localhost:5713/accs', formData);
+
+            loadacc()
             setTimeout(() => {
+                setLog(true)
                 navigate('/')
             }, 2000)
-            return
+
+
+        } catch (error) {
+            console.log(error)
+        }
+        try {
+                        
 
         } catch (error) {
             console.log(error)
         }
     }
-
-
-
 
     function LoginForm() {
         return (
@@ -121,11 +150,13 @@ function Login(props) {
         <div>
 
             <div className={styles.wrapper}>
+
                 <div className={styles.title_text}>
-                    <div className={clsx(styles.title, styles.login)}>
+                    <Link to={'/'} className={clsx(styles.title, styles.login)}>
                         ARTY
-                    </div>
+                    </Link>
                 </div>
+
                 <div className={styles.form_container}>
                     <div className={styles.form_inner}>
                         {login ? <LoginForm /> : <SignupForm />}

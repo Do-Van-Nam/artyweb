@@ -1,7 +1,6 @@
 import styles from "./footer.module.css";
 import clsx from "clsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import logo from "../../assets/images/logo1.png";
 import ReactDOM from 'react-dom'
 import { FaFacebook, FaEnvelope, FaPhone } from 'react-icons/fa'
 export default function Footer() {

@@ -4,9 +4,10 @@ const router  = express.Router()
 
 const BoughtTicket = require("../app/models/BoughtTicket.js")
 
-router.get('/',async(req,res)=>{
+router.get('/:userid',async(req,res)=>{
+    const userid = req.params.userid
     try {
-        const boughttickets= await BoughtTicket.find({})
+        const boughttickets= await BoughtTicket.find({userid:userid})
         
         return res.json({
             boughttickets:boughttickets
@@ -20,7 +21,8 @@ router.post('/',async(req,res)=>{
     try {
         const newBoughtTicket= {
             idartist :req.body.idartist,
-            paid: req.body.paid
+            paid: req.body.paid,
+            userid : req.body.userid,
         }
         const boughtticket= await BoughtTicket.create(newBoughtTicket)
         return res.status(201).send(boughtticket)
@@ -32,14 +34,15 @@ router.post('/',async(req,res)=>{
           return res.status(500).json({ error: 'Internal Server Error' });
     }
 })
-router.put('/:idartist',async(req,res)=>{
+router.put('/:idticket',async(req,res)=>{
     try {
-        const idartist=req.params.idartist
+        const idticket=req.params.idticket
         const updatedBoughtTicket= {
-            idartist :req.params.idartist,
-            paid: req.body.paid
+            idartist :req.body.idartist,
+            paid: req.body.paid,
+            userid :req.body.userid,
         }
-        const boughtticket= await BoughtTicket.findOneAndUpdate({idartist:idartist},updatedBoughtTicket,{new : true})
+        const boughtticket= await BoughtTicket.findOneAndUpdate({_id:idticket},updatedBoughtTicket,{new : true})
         if(!updatedBoughtTicket){
         return res.status(404).send("BoughtTicket not found")
 
@@ -50,10 +53,10 @@ router.put('/:idartist',async(req,res)=>{
         res.status(500).send(error.message)
     }
 })
-router.delete('/:idartist', async(req,res)=>{
-    const idartist = req.params.idartist
+router.delete('/:idticket', async(req,res)=>{
+    const idticket = req.params.idticket
     try {
-        const deletedTicket = await BoughtTicket.findOneAndDelete({idartist:idartist})
+        const deletedTicket = await BoughtTicket.findOneAndDelete({_id:idticket})
         if(!deletedTicket){
             res.status(404).send('Ticket not found')
         }

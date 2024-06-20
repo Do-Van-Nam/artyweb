@@ -13,23 +13,6 @@ import styles from './exhdetail.module.css'
 export default function ExhDetail() {
     const {data} = useContext(AppContext)
     var idartist = useParams()
-    console.log(typeof data,data, idartist)
-    // var [ exhspics,setExhspics] = useState([])
-    // var [loading,setLoading] = useState(false)
-    // useEffect(() => {
-    //     setLoading(true)
-    //     axios
-    //         .get('http://localhost:5713/exhspics')
-    //         .then((response) => {
-    //             setExhspics(response.data.exhspics)
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         })
-    //         .finally(()=>{
-    //             setLoading(false)
-    //         })
-    // }, [])
 
     return (
         <div className={styles.exhdetail}>
@@ -37,18 +20,9 @@ export default function ExhDetail() {
             <h1>{data.name}</h1>
             {data.pics.map((e)=>{
                 return  <PicBox props={e}/>
-
             })}
-            {/* <PicBox/>
-            <PicBox/>   
-            <PicBox/>   
-            <PicBox/>    */}
             <Footer/>
-            
         </div>
-
-
-
     )
 }
 
