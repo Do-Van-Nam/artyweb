@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState ,useContext} from "react";
 import styles from "./ticketPopup.module.css"
 // const thumb = '../../assets/images/image.png'
 import clsx from "clsx";

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useContext } from 'react';
+=======
+import React, { useState, useEffect,useContext } from 'react';
+>>>>>>> 322ff698181d039ef5e05407796cdc717d33c43a
 import clsx from 'clsx';
 import { Link, redirect, withRouter, useNavigate } from "react-router-dom";
 import { } from 'react-router'
@@ -14,8 +18,13 @@ function Login(props) {
     const [login, setLogin] = useState(props.log)
     const [loginSuccess, setLoginSuccess] = useState(false)
     const [signupSuccess, setSignupSuccess] = useState(false)
+<<<<<<< HEAD
     const { log, setLog } = useContext(AppContext)
     const { userid, setUserid } = useContext(AppContext)
+=======
+	const { log, setLog } = useContext(AppContext)
+	const { userid, setUserid } = useContext(AppContext)
+>>>>>>> 322ff698181d039ef5e05407796cdc717d33c43a
 
     const navigate = useNavigate()
 
@@ -43,7 +52,11 @@ function Login(props) {
             setTimeout(() => {
                 navigate('/')
             }, 2000)
+<<<<<<< HEAD
             const userid = localStorage.setItem("userid", isLoggined._id)
+=======
+           const userid= localStorage.setItem("userid",isLoggined._id)
+>>>>>>> 322ff698181d039ef5e05407796cdc717d33c43a
             setUserid(userid)
             return
         }
@@ -74,9 +87,15 @@ function Login(props) {
             email: email,
             password: password
         }
+<<<<<<< HEAD
         const isExistedEmail = accs.find(acc => acc.email === email)
         if (isExistedEmail) {
             alert("Tài khoản đã tồn tại!")
+=======
+        const isExistedEmail = accs.find(acc=>acc.email===email)
+        if(isExistedEmail){
+            alert("Tai khoan da ton tai!")
+>>>>>>> 322ff698181d039ef5e05407796cdc717d33c43a
             return
         }
         try {
@@ -87,6 +106,7 @@ function Login(props) {
                 setLog(true)
                 navigate('/')
             }, 2000)
+<<<<<<< HEAD
 
 
         } catch (error) {
@@ -94,6 +114,12 @@ function Login(props) {
         }
         try {
                         
+=======
+        const isLoggined = accs.find(acc => acc.email === email && acc.password === password)
+         localStorage.setItem("userid",isLoggined._id)
+            setUserid(localStorage.getItem('userid'))
+            return
+>>>>>>> 322ff698181d039ef5e05407796cdc717d33c43a
 
         } catch (error) {
             console.log(error)
